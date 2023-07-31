@@ -1,3 +1,4 @@
+import ArtPieces from "@/components/ArtPieces";
 import useSWR from "swr";
 
 export default function HomePage() {
@@ -6,9 +7,5 @@ export default function HomePage() {
   );
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-  return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
-  );
+  return <ArtPieces pieces={data} />;
 }
