@@ -9,7 +9,7 @@ export default function ArtPiecePreview({
 }) {
   return (
     <li>
-      <Image src={image} alt={title} width={width} height={height} />
+      <Image src={image} alt={title} width={width / 6} height={height / 6} />
       <p>
         `&quot;{title}&quot; by {artist}`
       </p>
