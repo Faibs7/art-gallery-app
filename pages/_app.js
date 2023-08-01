@@ -12,14 +12,14 @@ export default function App({ Component, pageProps }) {
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
 
   useEffect(() => {
-    const initalArtPiecesInfo =
+    const initialArtPiecesInfo =
       data &&
       data.map((piece) => {
         const { slug } = piece;
         return { slug, isFavorite: false };
       });
 
-    setArtPiecesInfo(initalArtPiecesInfo);
+    setArtPiecesInfo(initialArtPiecesInfo);
   }, [data]);
 
   function handleFavorite(slug) {

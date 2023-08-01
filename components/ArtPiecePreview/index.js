@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FavoriteButton from "../FavoriteButton";
 import { styled } from "styled-components";
+import Link from "next/link";
 
 export default function ArtPiecePreview({
   slug,
@@ -23,15 +24,17 @@ export default function ArtPiecePreview({
         slug={slug}
         isFavorite={isFavorite}
       />
-      <StyledImage
-        src={image}
-        alt={title}
-        width={width / 6}
-        height={height / 6}
-      />
-      <p>
-        `&quot;{title}&quot; by {artist}`
-      </p>
+      <Link href={`/art-pieces/${slug}`}>
+        <StyledImage
+          src={image}
+          alt={title}
+          width={width / 6}
+          height={height / 6}
+        />
+        <p>
+          &quot;{title}&quot; by {artist}
+        </p>
+      </Link>
     </StyledListItem>
   );
 }
