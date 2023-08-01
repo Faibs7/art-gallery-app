@@ -1,8 +1,9 @@
+import { styled } from "styled-components";
 import ArtPiecePreview from "../ArtPiecePreview";
 
 export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
   return (
-    <ul>
+    <StyledList>
       {pieces &&
         pieces.map((piece) => (
           <ArtPiecePreview
@@ -17,6 +18,14 @@ export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
             artPiecesInfo={artPiecesInfo}
           />
         ))}
-    </ul>
+    </StyledList>
   );
 }
+
+const StyledList = styled.ul`
+  width: calc(100% - 4rem);
+  margin: 0;
+  margin-top: 2rem;
+  margin-inline: auto;
+  padding: 0;
+`;
