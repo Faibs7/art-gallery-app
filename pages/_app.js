@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
+import Layout from "@/components/Layout";
 
 // APP COMPONENT
 export default function App({ Component, pageProps }) {
@@ -43,12 +44,14 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        pieces={data}
-        artPiecesInfo={artPiecesInfo}
-        onToggleFavorite={handleFavorite}
-      />
+      <Layout>
+        <Component
+          {...pageProps}
+          pieces={data}
+          artPiecesInfo={artPiecesInfo}
+          onToggleFavorite={handleFavorite}
+        />
+      </Layout>
     </>
   );
 }
