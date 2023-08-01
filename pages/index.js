@@ -1,4 +1,5 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
+import { styled } from "styled-components";
 
 function randomPiece(pieces) {
   const randomIndex = Math.floor(Math.random() * pieces.length);
@@ -8,7 +9,7 @@ function randomPiece(pieces) {
 export default function Spotlight({ pieces, onToggleFavorite, artPiecesInfo }) {
   const spotlightPiece = randomPiece(pieces);
   return (
-    <div>
+    <StyledWrapper>
       <ArtPiecePreview
         slug={spotlightPiece.slug}
         image={spotlightPiece.imageSource}
@@ -19,6 +20,14 @@ export default function Spotlight({ pieces, onToggleFavorite, artPiecesInfo }) {
         onToggleFavorite={onToggleFavorite}
         artPiecesInfo={artPiecesInfo}
       />
-    </div>
+    </StyledWrapper>
   );
 }
+
+const StyledWrapper = styled.div`
+  width: calc(100% - 4rem);
+  margin: 0;
+  margin-top: 2rem;
+  margin-inline: auto;
+  padding: 0;
+`;
