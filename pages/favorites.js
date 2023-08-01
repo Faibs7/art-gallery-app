@@ -1,4 +1,5 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
+import { styled } from "styled-components";
 
 export default function Favorites({ pieces, artPiecesInfo, onToggleFavorite }) {
   // filter pieces for isFavorite
@@ -13,7 +14,7 @@ export default function Favorites({ pieces, artPiecesInfo, onToggleFavorite }) {
   });
 
   return (
-    <ul>
+    <StyledList>
       {favoritePieces.map((piece) => (
         <ArtPiecePreview
           key={piece.slug}
@@ -27,6 +28,15 @@ export default function Favorites({ pieces, artPiecesInfo, onToggleFavorite }) {
           artPiecesInfo={artPiecesInfo}
         />
       ))}
-    </ul>
+    </StyledList>
   );
 }
+
+const StyledList = styled.ul`
+  width: calc(100% - 4rem);
+  margin: 0;
+  margin-top: 2rem;
+  margin-inline: auto;
+  padding: 0;
+  padding-bottom: 6rem;
+`;

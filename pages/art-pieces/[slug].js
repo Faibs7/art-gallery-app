@@ -21,7 +21,7 @@ export default function ArtPieceDetails({
 
   return (
     <>
-      <Link href="/">All Art Pieces</Link>
+      <Link href="/art-pieces">All Art Pieces</Link>
       <ArtPiecePreview
         key={artPiece.slug}
         image={artPiece.imageSource}

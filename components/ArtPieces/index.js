@@ -28,4 +28,5 @@ const StyledList = styled.ul`
   margin-top: 2rem;
   margin-inline: auto;
   padding: 0;
+  padding-bottom: 6rem;
 `;
