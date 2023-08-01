@@ -42,7 +42,7 @@ export default function ArtPiecePreview({
 const StyledListItem = styled.li`
   position: relative;
   width: 100%;
-  height: 500px;
+  height: auto;
   list-style: none;
   margin-bottom: 2rem;
 
