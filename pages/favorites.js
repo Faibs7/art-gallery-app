@@ -1,18 +1,16 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
 
-export default function Favorites({ pieces, artPiecesInfo }) {
-  const filteredPieces =
-    artPiecesInfo && artPiecesInfo.filter((piece) => piece.isFavorite);
-  const favoritePieces =
-    pieces &&
-    pieces.filter((favoritePiece) => {
-      filteredPieces &&
-        filteredPieces.map((filteredPiece) => {
-          if (filteredPiece.slug === favoritePiece.slug) {
-            return filteredPiece;
-          }
-        });
-    });
+export default function Favorites({ pieces, artPiecesInfo, onToggleFavorite }) {
+  // filter pieces for isFavorite
+  const favoritePieces = pieces.filter((piece) => {
+    // Find the corresponding art piece info in artPiecesInfo array
+    const artPieceInfo = artPiecesInfo.find(
+      (artPiece) => artPiece.slug === piece.slug
+    );
+
+    // Return true only if the art piece info exists and isFavorite is true
+    return artPieceInfo && artPieceInfo.isFavorite === true;
+  });
 
   return (
     <ul>
