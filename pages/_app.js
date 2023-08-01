@@ -36,7 +36,6 @@ export default function App({ Component, pageProps }) {
     });
     setArtPiecesInfo(updatedArtPieceInfo);
   }
-  console.log(artPiecesInfo);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
