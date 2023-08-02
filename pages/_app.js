@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout";
+import useLocalStorageState from "use-local-storage-state";
 
 // APP COMPONENT
 export default function App({ Component, pageProps }) {
@@ -10,18 +11,17 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
-
-  useEffect(() => {
-    const initialArtPiecesInfo =
-      data &&
-      data.map((piece) => {
-        const { slug } = piece;
-        return { slug, comments: [], isFavorite: false };
-      });
-
-    setArtPiecesInfo(initialArtPiecesInfo);
-  }, [data]);
+  const [artPiecesInfo, updateArtPiecesInfo] = useLocalStorageState(
+    "art-pieces-info",
+    {
+      defaultValue:
+        data &&
+        data.map((piece) => {
+          const { slug } = piece;
+          return { slug, comments: [], isFavorite: false };
+        }),
+    }
+  );
 
   function handleFavorite(slug) {
     const updatedArtPieceInfo = artPiecesInfo.map((piece) => {
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
       }
       return piece;
     });
-    setArtPiecesInfo(updatedArtPieceInfo);
+    updateArtPiecesInfo(updatedArtPieceInfo);
   }
 
   if (error) return <div>failed to load</div>;
@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }) {
       return piece;
     });
     console.log(updatedArtPieceInfo);
-    setArtPiecesInfo(updatedArtPieceInfo);
+    updateArtPiecesInfo(updatedArtPieceInfo);
     event.target.reset();
   }
 
