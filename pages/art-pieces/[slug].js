@@ -64,7 +64,7 @@ const StyledWrapper = styled.section`
   margin-top: 2rem;
   margin-inline: auto;
   padding: 0;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
 `;
 
 const StyledList = styled.ul`
