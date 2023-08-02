@@ -28,6 +28,10 @@ const StyledSection = styled.section`
 
   & li:nth-of-type(odd) {
     background-color: #f1f1f1;
+    & p,
+    h4 {
+      text-align: right;
+    }
   }
 
   & li {

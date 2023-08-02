@@ -4,6 +4,7 @@ import ArtPiecePreview from "@/components/ArtPiecePreview";
 import { styled } from "styled-components";
 import CommentForm from "@/components/CommentForm";
 import Comment from "@/components/Comment";
+import ColorPalette from "@/components/ColorPalette";
 
 export default function ArtPieceDetails({
   pieces,
@@ -47,6 +48,9 @@ export default function ArtPieceDetails({
           isFavorite={isFavorite}
         />
       </StyledList>
+
+      <ColorPalette artPiece={artPiece} />
+
       <p>year: {artPiece.year}</p>
       <p>genre: {artPiece.genre}</p>
       {/*
@@ -65,6 +69,10 @@ const StyledWrapper = styled.section`
   margin-inline: auto;
   padding: 0;
   padding-bottom: 10rem;
+
+  & p {
+    text-align: left;
+  }
 `;
 
 const StyledList = styled.ul`

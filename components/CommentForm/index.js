@@ -15,9 +15,9 @@ const StyledForm = styled.form`
   background: #f1f1f1;
   padding: 2rem;
   border-radius: 1rem;
+  align-items: start;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 
   & button {
@@ -26,6 +26,7 @@ const StyledForm = styled.form`
     border: none;
     background: orange;
     font-size: 1.125rem;
+    align-self: center;
   }
 
   & textarea {

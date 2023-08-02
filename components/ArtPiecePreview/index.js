@@ -31,9 +31,10 @@ export default function ArtPiecePreview({
           width={width / 6}
           height={height / 6}
         />
-        <p>
-          &quot;{title}&quot; by {artist}
-        </p>
+        <StyledTextWrapper>
+          <p>&quot;{title}&quot; </p>
+          <p>by {artist}</p>
+        </StyledTextWrapper>
       </Link>
     </StyledListItem>
   );
@@ -45,21 +46,27 @@ const StyledListItem = styled.li`
   height: auto;
   list-style: none;
   margin-bottom: 2rem;
-
-  & p {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: 10;
-    background-color: black;
-    color: white;
-    margin: 0;
-    padding: 1rem;
-  }
 `;
 
 const StyledImage = styled(Image)`
   object-fit: cover;
   width: 100%;
   height: 100%;
+`;
+
+const StyledTextWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  & p {
+    margin: 0;
+  }
 `;
