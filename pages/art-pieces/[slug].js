@@ -2,19 +2,29 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ArtPiecePreview from "@/components/ArtPiecePreview";
 import { styled } from "styled-components";
+import CommentForm from "@/components/CommentForm";
+import Comment from "@/components/Comment";
 
 export default function ArtPieceDetails({
   pieces,
   onToggleFavorite,
   artPiecesInfo,
+  onSubmit,
 }) {
   const router = useRouter();
 
+  // get the current image
   const artPiece = pieces.find(({ slug }) => slug === router.query.slug);
 
+  // get favorite status for the current immage
   const isFavorite =
     artPiecesInfo &&
     artPiecesInfo.find((piece) => piece.slug === router.query.slug).isFavorite;
+
+  // get comments for the current image
+  const comments =
+    artPiecesInfo &&
+    artPiecesInfo.find((piece) => piece.slug === router.query.slug).comments;
 
   if (!pieces) {
     return null;
@@ -39,6 +49,11 @@ export default function ArtPieceDetails({
       </StyledList>
       <p>year: {artPiece.year}</p>
       <p>genre: {artPiece.genre}</p>
+      {/*
+      rend comments only when exist ->
+      */}
+      {comments && <Comment comments={comments} />}
+      <CommentForm onSubmit={onSubmit} slug={artPiece.slug} />
     </StyledWrapper>
   );
 }
